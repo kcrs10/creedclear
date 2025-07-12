@@ -1,0 +1,272 @@
+/* --- Paleta de Colores y Estilos Globales --- */
+:root {
+  --honey-color: #ffbf00;
+  --honey-glow: #ffd04e;
+  --dark-background: #121212;
+  --accent-green: #2e7d32;
+  --text-color: #e0e0e0;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, sans-serif;
+  background-color: var(--dark-background);
+  background-image: radial-gradient(circle at 50% 100%, #2a2a2a 0%, var(--dark-background) 60%);
+  color: var(--text-color);
+  align-items: flex-start;
+  min-height: 100vh;
+}
+
+/* --- Contenedor Principal --- */
+.main-content {
+  width: 100%;
+  padding-top: 5vh;
+  padding-bottom: 5vh;
+}
+
+.content-container {
+  text-align: center;
+  padding: 20px;
+}
+
+/* --- Logo Principal --- */
+.main-logo {
+  max-width: 180px;
+  height: auto;
+  margin-bottom: 20px;
+  animation: logo-pulse 3s ease-in-out infinite;
+}
+
+@keyframes logo-pulse {
+  0% { transform: scale(1); filter: drop-shadow(0 0 5px #ffbf0055); }
+  50% { transform: scale(1.05); filter: drop-shadow(0 0 15px #ffbf0099); }
+  100% { transform: scale(1); filter: drop-shadow(0 0 5px #ffbf0055); }
+}
+
+/* --- Título y Texto --- */
+.title-glow {
+  color: var(--honey-color);
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin: 0 0 1rem 0;
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 10px #ffbf0055, 0 0 20px #ffbf0033; }
+  to { text-shadow: 0 0 20px #ffbf0099, 0 0 30px #ffbf0077; }
+}
+
+.content-container p {
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+  max-width: 600px;
+  line-height: 1.6;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* --- Grupo de Botones --- */
+.button-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.instagram-button, .info-button {
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.instagram-button {
+  padding: 15px 40px;
+  background-color: var(--honey-color);
+  color: #121212;
+  text-decoration: none;
+  font-size: 1.1rem;
+  border: none;
+  box-shadow: 0 4px 20px #00000080;
+}
+
+.instagram-button:hover {
+  transform: scale(1.05);
+  background-color: var(--honey-glow);
+  box-shadow: 0 6px 25px #00000099;
+}
+
+.info-button {
+  background: none;
+  border: 1px solid var(--accent-green);
+  color: var(--accent-green);
+  padding: 10px 25px;
+}
+
+.info-button:hover {
+  background-color: var(--accent-green);
+  color: white;
+  transform: scale(1.05);
+}
+
+/* --- Sección de Productos (Estilo Reutilizable) --- */
+.product-section {
+  padding: 40px 20px;
+  width: 100%;
+  max-width: 900px;
+  margin: 40px auto 0 auto;
+  text-align: center;
+}
+
+.product-section h2 {
+  font-size: 2.5rem;
+  color: var(--honey-color);
+  margin-bottom: 30px;
+}
+
+.single-image-container {
+  position: relative;
+  cursor: pointer;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.all-products-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform 0.4s ease;
+}
+
+.single-image-container:hover .all-products-image {
+  transform: scale(1.05);
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.single-image-container:hover .image-overlay {
+  opacity: 1;
+}
+
+
+/* --- SECCIÓN DE LOGOS DE MARCAS (AÑADIDA DE NUEVO) --- */
+.brands-section {
+  padding: 40px 20px;
+  width: 100%;
+  text-align: center;
+  background-color: #1a1a1a;
+  margin-top: 60px;
+  border-top: 1px solid #ffffff22;
+}
+
+.brands-section h2 {
+  font-size: 2rem;
+  color: var(--honey-color);
+  margin-bottom: 30px;
+}
+
+.brands-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+
+.brand-logo {
+  max-height: 80px;
+  width: auto;
+  opacity: 0.7;
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.brand-logo:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+
+/* --- Ventana Modal (Estilos Generales) --- */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+  background-color: #1e1e1e;
+  padding: 30px;
+  border-radius: 10px;
+  border-top: 5px solid var(--honey-color);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  max-width: 500px;
+  width: 90%;
+  position: relative;
+  animation: slideIn 0.4s ease-out;
+}
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slideIn { from { transform: translateY(-30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+.modal-content h2 { color: var(--honey-glow); margin-top: 0; }
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  color: #888;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+.modal-close:hover { color: white; }
+
+/* --- Estilos para la Lista de Precios en el Modal --- */
+.price-list { display: flex; flex-direction: column; gap: 15px; }
+.price-list-item { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #ffffff22; }
+.price-list-item:last-child { border-bottom: none; }
+.price-list-name { font-size: 1rem; color: var(--text-color); }
+.price-list-price { font-size: 1.1rem; font-weight: bold; color: var(--accent-green); }
+
+
+/* --- AJUSTES PARA DISPOSITIVOS MÓVILES --- */
+@media (max-width: 768px) {
+  .main-logo { max-width: 150px; }
+  .title-glow { font-size: 2.8rem; }
+  .content-container p { font-size: 1rem; margin-bottom: 30px; }
+  .product-section, .brands-section { padding: 30px 15px; margin-top: 30px; }
+  .product-section h2, .brands-section h2 { font-size: 2rem; margin-bottom: 25px; }
+  .image-overlay span { font-size: 1.2rem; }
+  .brands-container { gap: 30px; }
+  .brand-logo { max-height: 60px; }
+  .modal-content { padding: 25px; }
+}

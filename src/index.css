@@ -1,0 +1,17 @@
+:root {
+  --honey-color: #ffbf00;
+  --dark-background: #1a1a1a;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--dark-background);
+  color: #f0f0f0;
+
+  /* Centra todo el contenido de la página */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
